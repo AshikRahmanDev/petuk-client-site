@@ -4,8 +4,7 @@ import { SiFoodpanda } from "react-icons/si";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Header = () => {
-  const { name } = useContext(AuthContext);
-  console.log(name);
+  const { user } = useContext(AuthContext);
   const navigationOption = (
     <>
       <li>
