@@ -6,13 +6,19 @@ const Header = () => {
   const navigationOption = (
     <>
       <li>
-        <Link className="btn bg-transparent border-0 hover:bg-white hover:text-orange-400">
+        <Link
+          to={"/"}
+          className="btn bg-transparent border-0 hover:bg-white hover:text-orange-400"
+        >
           Home
         </Link>
       </li>
       <li>
-        <Link className="btn bg-transparent border-0 hover:bg-white hover:text-orange-400">
-          Services
+        <Link
+          to={"/addFood"}
+          className="btn bg-transparent border-0 hover:bg-white hover:text-orange-400"
+        >
+          Add Service
         </Link>
       </li>
 
@@ -58,7 +64,9 @@ const Header = () => {
         </div>
         <Link className="btn btn-ghost normal-case text-xl">
           <SiFoodpanda className="text-orange-400" />{" "}
-          <p className="ml-1">PETUK</p>
+          <Link to={"/"} className="ml-1">
+            PETUK
+          </Link>
         </Link>
       </div>
       <div className="navbar-end">
