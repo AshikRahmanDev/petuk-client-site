@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { MdEmail, MdPassword } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
@@ -6,7 +6,8 @@ import "./Login.css";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Login = () => {
-  const { googleLogin } = useContext(AuthContext);
+  const [error, setError] = useState(null);
+  const { googleLogin, login } = useContext(AuthContext);
 
   const handleGoogleLogin = () => {
     googleLogin()
@@ -15,6 +16,26 @@ const Login = () => {
         console.log(user);
       })
       .catch((err) => console.log(err));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    if (password.length < 6) {
+      return setError("password must be 6 character or more.");
+    }
+
+    login(email, password)
+      .then((result) => {
+        const user = result.user;
+        form.reset();
+        setError(null);
+        console.log(user);
+      })
+      .catch((err) => setError(err.message));
   };
   return (
     <div className="md:h-[92vh] h-[92vh] md:flex justify-between">
@@ -34,7 +55,7 @@ const Login = () => {
             ----Or Sign in with Email ----
           </p>
         </div>
-        <form action="">
+        <form onSubmit={handleSubmit}>
           <div className="mt-5 ">
             <label className="flex items-center">
               <MdEmail />
@@ -63,7 +84,7 @@ const Login = () => {
             />
           </div>
 
-          <p className="text-red-500"></p>
+          <p className="text-red-500">{error}</p>
           <div className="text-center mt-5">
             <input
               className="btn w-full mb-3 bg-orange-400 rounded-3xl border-0"
