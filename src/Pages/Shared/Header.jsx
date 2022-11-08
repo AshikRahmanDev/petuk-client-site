@@ -17,7 +17,7 @@ const Header = () => {
       </li>
       <li>
         <Link
-          to={"/addFood"}
+          to={"/addMeal"}
           className="btn bg-transparent border-0 hover:bg-white hover:text-orange-400"
         >
           Add Service
@@ -62,14 +62,16 @@ const Header = () => {
           <ul
             tabIndex={0}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-          ></ul>
+          >
+            {navigationOption}
+          </ul>
         </div>
         <Link to={"/"} className="btn btn-ghost normal-case text-xl">
           <SiFoodpanda className="text-orange-400" />{" "}
           <p className="ml-1">PETUK</p>
         </Link>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end hidden md:flex">
         <ul className="menu menu-horizontal p-0">{navigationOption}</ul>
       </div>
     </div>
