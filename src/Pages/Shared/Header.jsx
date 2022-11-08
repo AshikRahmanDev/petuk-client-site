@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { SiFoodpanda } from "react-icons/si";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const Header = () => {
+  const { name } = useContext(AuthContext);
+  console.log(name);
   const navigationOption = (
     <>
       <li>
@@ -62,11 +65,9 @@ const Header = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           ></ul>
         </div>
-        <Link className="btn btn-ghost normal-case text-xl">
+        <Link to={"/"} className="btn btn-ghost normal-case text-xl">
           <SiFoodpanda className="text-orange-400" />{" "}
-          <Link to={"/"} className="ml-1">
-            PETUK
-          </Link>
+          <p className="ml-1">PETUK</p>
         </Link>
       </div>
       <div className="navbar-end">
