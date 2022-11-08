@@ -9,7 +9,28 @@ const AddMeal = () => {
     const price = form.price.value;
     const delivery = form.delivery.value;
     const details = form.details.value;
-    console.log(name, picture, price, delivery, details);
+    const meal = {
+      name,
+      picture,
+      price,
+      delivery,
+      details,
+    };
+
+    fetch("http://localhost:5000/addMeal", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(meal),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.acknowledged) {
+          alert("Successfully data added.");
+          form.reset();
+        }
+      });
   };
   return (
     <div className="flex justify-between items-center">

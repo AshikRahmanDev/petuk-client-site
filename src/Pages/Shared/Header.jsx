@@ -4,7 +4,7 @@ import { SiFoodpanda } from "react-icons/si";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   const navigationOption = (
     <>
       <li>
@@ -15,28 +15,43 @@ const Header = () => {
           Home
         </Link>
       </li>
-      <li>
-        <Link
-          to={"/addMeal"}
-          className="btn bg-transparent border-0 hover:bg-white hover:text-orange-400"
-        >
-          Add Service
-        </Link>
-      </li>
 
       <li>
         <Link className="btn bg-transparent border-0 hover:bg-white hover:text-orange-400">
           Blog
         </Link>
       </li>
-      <li>
-        <Link
-          to={"/login"}
-          className="btn bg-transparent border-0 hover:bg-white hover:text-orange-400"
-        >
-          Login
-        </Link>
-      </li>
+
+      {user?.email ? (
+        <>
+          <li>
+            <Link
+              to={"/addMeal"}
+              className="btn bg-transparent border-0 hover:bg-white hover:text-orange-400"
+            >
+              Add Service
+            </Link>
+          </li>
+
+          <li>
+            <button
+              onClick={() => logout()}
+              className="btn bg-transparent border-0 hover:bg-white hover:text-orange-400"
+            >
+              Logout
+            </button>
+          </li>
+        </>
+      ) : (
+        <li>
+          <Link
+            to={"/login"}
+            className="btn bg-transparent border-0 hover:bg-white hover:text-orange-400"
+          >
+            Login
+          </Link>
+        </li>
+      )}
     </>
   );
   return (
