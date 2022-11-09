@@ -29,7 +29,16 @@ const Header = () => {
               to={"/addMeal"}
               className="btn bg-transparent border-0 hover:bg-white hover:text-orange-400"
             >
-              Add Service
+              Add Meal
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              to={"/addMeal"}
+              className="btn bg-transparent border-0 hover:bg-white hover:text-orange-400"
+            >
+              My Reviews
             </Link>
           </li>
 
