@@ -1,7 +1,7 @@
 import React from "react";
 
 const ReviewCard = ({ review }) => {
-  const { displayName, email, photoURL, reviewMessage, date } = review;
+  const { displayName, photoURL, reviewMessage, date } = review;
   return (
     <div className="p-3 border rounded-lg">
       <div className="flex items-center">

@@ -5,6 +5,7 @@ import AllMenu from "../Pages/AllMenu/AllMenu";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import MealDetails from "../Pages/MealDetails/MealDetails";
+import MyReviews from "../Pages/MyReviews/MyReviews";
 import Register from "../Pages/Register/Register";
 
 export const router = createBrowserRouter([
@@ -27,6 +28,7 @@ export const router = createBrowserRouter([
         },
         element: <MealDetails />,
       },
+      { path: "/myReviews", element: <MyReviews /> },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
     ],

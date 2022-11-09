@@ -35,7 +35,7 @@ const AddMeal = () => {
       });
   };
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center md:mb-16">
       <div className="md:w-[40%] w-[95%] mx-auto">
         <h1 className="text-4xl text-center md:text-start font-bold my-3">
           Add A <span className="text-orange-400">New</span> Meal

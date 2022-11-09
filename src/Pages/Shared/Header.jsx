@@ -35,7 +35,7 @@ const Header = () => {
 
           <li>
             <Link
-              to={"/addMeal"}
+              to={"/myReviews"}
               className="btn bg-transparent border-0 hover:bg-white hover:text-orange-400"
             >
               My Reviews
