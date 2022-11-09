@@ -1,6 +1,8 @@
 import React from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const AddMeal = () => {
+  const notify = () => toast.success("Successfully Added!");
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -27,7 +29,7 @@ const AddMeal = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data?.acknowledged) {
-          alert("Successfully data added.");
+          notify();
           form.reset();
         }
       });
@@ -109,6 +111,7 @@ const AddMeal = () => {
           border="0"
         ></img>
       </div>
+      <Toaster />
     </div>
   );
 };

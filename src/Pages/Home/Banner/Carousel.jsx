@@ -5,7 +5,7 @@ const Carousel = () => {
   const bannerData = [
     {
       image:
-        "https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "https://img.freepik.com/free-photo/woman-chef-cooking-vegetables-pan_1303-22293.jpg?w=740&t=st=1668007039~exp=1668007639~hmac=0c2360e8ce4360f845be06227fb6b0ddea38fd130aa762e9c4c772f4bffbea6f",
       prev: 4,
       id: 1,
       next: 2,

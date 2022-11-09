@@ -2,15 +2,22 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import { GiForkKnifeSpoon, GiSandsOfTime } from "react-icons/gi";
 import ReviewSection from "./ReviewSection";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const MealDetails = () => {
-  const meals = useLoaderData();
-  const { name, picture, _id, details, delivery, price } = meals;
-  console.log(meals);
+  const meal = useLoaderData();
+  const { name, picture, _id, details, delivery, price } = meal;
+  console.log(meal);
   return (
     <div className="w-[93%] mx-auto">
       <div className="flex border-2">
-        <img className="w-[400px]" src={picture} alt="" />
+        <PhotoProvider>
+          <PhotoView src={picture}>
+            <img className="w-[400px]" src={picture} alt="" />
+          </PhotoView>
+        </PhotoProvider>
+
         <div className="p-2 pl-5 md:w-[40%] ">
           <h4 className="text-3xl font-bold">{name}</h4>
           <p className="py-2">{details}</p>
@@ -25,7 +32,7 @@ const MealDetails = () => {
       </div>
 
       {/* review section */}
-      <ReviewSection />
+      <ReviewSection meal={meal} />
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React from "react";
+import AboutMe from "../AboutMe/AboutMe";
 import Carousel from "../Banner/Carousel";
 import Menu from "../Menu/Menu";
 import "./Home.css";
@@ -29,6 +30,9 @@ const Home = () => {
 
       {/* menu section */}
       <Menu />
+
+      {/* about me section */}
+      <AboutMe />
     </div>
   );
 };
