@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const MealCard = ({ meal }) => {
-  const { name, picture, price, details } = meal;
+  const { name, picture, price, details, _id } = meal;
   return (
     <div className="mx-auto p-3 border border-orange-400 rounded-lg">
       <img
@@ -19,7 +19,10 @@ const MealCard = ({ meal }) => {
           <p className="text-2xl font-bold normal-case">
             Price: <span className="text-red-500">${price}</span>
           </p>
-          <Link className="btn bg-white text-orange-500 border-2 border-orange-500 hover:bg-orange-600 hover:text-white hover:border-orange-500 ">
+          <Link
+            to={`/mealDetails/${_id}`}
+            className="btn bg-white text-orange-500 border-2 border-orange-500 hover:bg-orange-600 hover:text-white hover:border-orange-500 "
+          >
             view details
           </Link>
         </div>
