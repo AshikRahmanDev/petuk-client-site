@@ -1,7 +1,7 @@
 import React from "react";
 
-const TableItem = ({ review }) => {
-  const { mealDetails, meal, reviewMessage, date } = review;
+const TableItem = ({ review, handleDelete }) => {
+  const { mealDetails, meal, reviewMessage, date, _id } = review;
   return (
     <tr>
       <td className="p-3 rounded-xl">
@@ -29,7 +29,12 @@ const TableItem = ({ review }) => {
       </td>
       <td>{date}</td>
       <th>
-        <button className="btn bg-red-500 rounded-3xl border-0">Delete</button>
+        <button
+          onClick={() => handleDelete(_id)}
+          className="btn bg-red-500 rounded-3xl border-0"
+        >
+          Delete
+        </button>
       </th>
       <th>
         <button className="btn bg-green-500 rounded-3xl border-0">Edit</button>
