@@ -3,8 +3,10 @@ import { MdEmail, MdPassword } from "react-icons/md";
 import { BsFillPersonCheckFill, BsLink45Deg } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
+import setTitle from "../../Hooks/TiitleHooks";
 
 const Register = () => {
+  setTitle("Register");
   const [error, setError] = useState(null);
   const { register, updateUserProfile } = useContext(AuthContext);
 

@@ -3,8 +3,10 @@ import { MdEmail, MdPassword } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
+import setTitle from "../../Hooks/TiitleHooks";
 
 const Login = () => {
+  setTitle("Login");
   const [error, setError] = useState(null);
   const { googleLogin, login } = useContext(AuthContext);
   const location = useLocation();
@@ -15,7 +17,7 @@ const Login = () => {
     googleLogin()
       .then((result) => {
         const user = result.user;
-        fetch("https://petuk-server.vercel.app/jwt", {
+        fetch("https://petuk-server-mohammdashik.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -27,6 +29,7 @@ const Login = () => {
             const token = data.token;
             localStorage.setItem("petuk-token", token);
           });
+        navigate("/");
       })
       .catch((err) => console.log(err));
   };
@@ -47,7 +50,7 @@ const Login = () => {
         navigate(from, { replace: true });
         form.reset();
         setError(null);
-        fetch("https://petuk-server.vercel.app/jwt", {
+        fetch("https://petuk-server-mohammdashik.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",

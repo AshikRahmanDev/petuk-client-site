@@ -2,9 +2,9 @@ import React from "react";
 
 const AboutMe = () => {
   return (
-    <div className="flex md:w-[90%] mx-auto mt-16">
+    <div className="md:flex md:w-[90%] mx-auto mt-16">
       <img
-        className="w-[40%] rounded-2xl"
+        className="w-[40%] hidden md:flex rounded-2xl"
         src="https://static.wixstatic.com/media/4a538a_f552fb64fe844781b4af558e9b49e593~mv2.jpg/v1/crop/x_0,y_32,w_3744,h_4928/fill/w_558,h_494,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/03_04_21_Chantelle_Portrait11609.jpg"
         alt="aboutme"
         border="0"

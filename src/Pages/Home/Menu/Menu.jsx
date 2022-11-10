@@ -6,7 +6,7 @@ const Menu = () => {
   const [meals, setMeals] = useState([]);
 
   useEffect(() => {
-    fetch("https://petuk-server.vercel.app/home/meals")
+    fetch("https://petuk-server-mohammdashik.vercel.app/home/meals")
       .then((res) => res.json())
       .then((data) => setMeals(data));
   }, []);

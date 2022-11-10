@@ -1,7 +1,9 @@
 import React from "react";
 import toast, { Toaster } from "react-hot-toast";
+import setTitle from "../../Hooks/TiitleHooks";
 
 const AddMeal = () => {
+  setTitle("Add Meal ");
   const notify = () => toast.success("Successfully Added!");
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -19,7 +21,7 @@ const AddMeal = () => {
       details,
     };
 
-    fetch("https://petuk-server.vercel.app/addMeal", {
+    fetch("https://petuk-server-mohammdashik.vercel.app/addMeal", {
       method: "POST",
       headers: {
         "content-type": "application/json",

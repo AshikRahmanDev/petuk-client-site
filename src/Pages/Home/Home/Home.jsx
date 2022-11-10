@@ -1,10 +1,13 @@
 import React from "react";
+import setTitle from "../../../Hooks/TiitleHooks";
 import AboutMe from "../AboutMe/AboutMe";
+import AboutServices from "../AboutServices/AboutServices";
 import Carousel from "../Banner/Carousel";
 import Menu from "../Menu/Menu";
 import "./Home.css";
 
 const Home = () => {
+  setTitle("Home");
   return (
     <div className="mb-10">
       <div className="grid grid-cols-7 w-[97%] mx-auto gap-4">
@@ -33,6 +36,9 @@ const Home = () => {
 
       {/* about me section */}
       <AboutMe />
+
+      {/* about services */}
+      <AboutServices />
     </div>
   );
 };

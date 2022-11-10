@@ -10,16 +10,15 @@ const ReviewSection = ({ meal }) => {
   const empty = () => toast.error("Please Enter Something for Post Review!");
   const { user } = useContext(AuthContext);
 
-  var today = new Date(),
-    date =
-      today.getFullYear() +
-      "-" +
-      (today.getMonth() + 1) +
-      "-" +
-      today.getDate();
+  var today = new Date();
+
+  let date =
+    today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+  let time =
+    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
   useEffect(() => {
-    fetch("https://petuk-server.vercel.app/reviews", {
+    fetch("https://petuk-server-mohammdashik.vercel.app/reviews", {
       headers: {
         meal: meal.name,
       },
@@ -40,6 +39,7 @@ const ReviewSection = ({ meal }) => {
       email: user?.email,
       photoURL: user?.photoURL,
       date,
+      timeSet: date + time,
       meal: meal.name,
       mealDetails: meal,
     };
@@ -48,7 +48,7 @@ const ReviewSection = ({ meal }) => {
       return empty();
     }
 
-    fetch("https://petuk-server.vercel.app/add/review", {
+    fetch("https://petuk-server-mohammdashik.vercel.app/add/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",

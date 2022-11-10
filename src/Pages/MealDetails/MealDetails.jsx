@@ -4,8 +4,10 @@ import { GiSandsOfTime } from "react-icons/gi";
 import ReviewSection from "./ReviewSection";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
+import setTitle from "../../Hooks/TiitleHooks";
 
 const MealDetails = () => {
+  setTitle("Details");
   const meal = useLoaderData();
   const { name, picture, details, delivery, price } = meal;
 

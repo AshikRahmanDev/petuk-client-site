@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import setTitle from "../../Hooks/TiitleHooks";
 
 const EditReviews = () => {
+  setTitle("Edit");
   const [reviewText, setReviewText] = useState(null);
   const [edit, setEdit] = useState(false);
   const reviewData = useLoaderData();
@@ -20,7 +22,7 @@ const EditReviews = () => {
     }
 
     if (review.length > 0) {
-      fetch("https://petuk-server.vercel.app/updateReview", {
+      fetch("https://petuk-server-mohammdashik.vercel.app/updateReview", {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

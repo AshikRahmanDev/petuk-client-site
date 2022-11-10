@@ -2,15 +2,17 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
 import TableItem from "./TableItem";
 import toast, { Toaster } from "react-hot-toast";
+import setTitle from "../../Hooks/TiitleHooks";
 
 const MyReviews = () => {
+  setTitle("My Review");
   const [reviews, setReviews] = useState([]);
   const { user, logout } = useContext(AuthContext);
   const notify = () => toast.success("Review Deleted!");
 
   useEffect(() => {
     fetch(
-      `https://petuk-server.vercel.app/user/reviews/?email=${user?.email}`,
+      `https://petuk-server-mohammdashik.vercel.app/user/reviews/?email=${user?.email}`,
       {
         headers: {
           authorization: localStorage.getItem("petuk-token"),
@@ -26,12 +28,17 @@ const MyReviews = () => {
       .then((data) => setReviews(data));
   }, [user]);
 
+  console.log(reviews);
+
   const handleDelete = (id) => {
     const conformation = window.confirm("Confirm if your want to delete!");
     if (conformation) {
-      fetch(`https://petuk-server.vercel.app/delete/review/?id=${id}`, {
-        method: "DELETE",
-      })
+      fetch(
+        `https://petuk-server-mohammdashik.vercel.app/delete/review/?id=${id}`,
+        {
+          method: "DELETE",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

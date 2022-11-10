@@ -1,6 +1,8 @@
 import React from "react";
+import setTitle from "../../Hooks/TiitleHooks";
 
 const Blogs = () => {
+  setTitle("Blogs");
   return (
     <div className="md:h-[90vh] my-5 flex items-center justify-center">
       <div className=" md:w-[70%] border border-orange-500 rounded-lg p-3">
