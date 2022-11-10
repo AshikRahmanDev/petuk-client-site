@@ -5,6 +5,7 @@ import AllMenu from "../Pages/AllMenu/AllMenu";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import MealDetails from "../Pages/MealDetails/MealDetails";
+import EditReviews from "../Pages/MyReviews/EditReviews";
 import MyReviews from "../Pages/MyReviews/MyReviews";
 import Register from "../Pages/Register/Register";
 import PrivetRoute from "./PrivetRoute";
@@ -42,6 +43,16 @@ export const router = createBrowserRouter([
           <PrivetRoute>
             {" "}
             <MyReviews />
+          </PrivetRoute>
+        ),
+      },
+      {
+        path: "/editReview/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/singleReview/${params.id}`),
+        element: (
+          <PrivetRoute>
+            <EditReviews />
           </PrivetRoute>
         ),
       },

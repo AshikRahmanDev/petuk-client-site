@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const TableItem = ({ review, handleDelete }) => {
   const { mealDetails, meal, reviewMessage, date, _id } = review;
@@ -37,7 +38,12 @@ const TableItem = ({ review, handleDelete }) => {
         </button>
       </th>
       <th>
-        <button className="btn bg-green-500 rounded-3xl border-0">Edit</button>
+        <Link
+          to={`/editReview/${_id}`}
+          className="btn bg-green-500 rounded-3xl border-0"
+        >
+          Edit
+        </Link>
       </th>
     </tr>
   );

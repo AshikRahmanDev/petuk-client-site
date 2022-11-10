@@ -8,7 +8,7 @@ import "react-photo-view/dist/react-photo-view.css";
 const MealDetails = () => {
   const meal = useLoaderData();
   const { name, picture, details, delivery, price } = meal;
-  console.log(meal);
+
   return (
     <div className="w-[93%] mx-auto mb-10">
       <div className="flex border-2 p-2 rounded-lg">

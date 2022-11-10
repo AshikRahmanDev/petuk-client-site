@@ -46,7 +46,8 @@ const Login = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            localStorage.setItem("petuk-token", data.token);
+            const token = data.token;
+            localStorage.setItem("petuk-token", token);
           });
       })
       .catch((err) => setError(err.message));

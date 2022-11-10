@@ -5,12 +5,21 @@ import toast, { Toaster } from "react-hot-toast";
 
 const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   const notify = () => toast.success("Review Deleted!");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/user/reviews/?email=${user?.email}`)
-      .then((res) => res.json())
+    fetch(`http://localhost:5000/user/reviews/?email=${user?.email}`, {
+      headers: {
+        authorization: localStorage.getItem("petuk-token"),
+      },
+    })
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          return logout();
+        }
+        return res.json();
+      })
       .then((data) => setReviews(data));
   }, [user]);
 
