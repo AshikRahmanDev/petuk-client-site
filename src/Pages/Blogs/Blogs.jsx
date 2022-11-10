@@ -2,7 +2,7 @@ import React from "react";
 
 const Blogs = () => {
   return (
-    <div className="h-[90vh] flex items-center justify-center">
+    <div className="md:h-[90vh] my-5 flex items-center justify-center">
       <div className=" md:w-[70%] border border-orange-500 rounded-lg p-3">
         <h4 className="font-bold my-2 ">Available Blogs:</h4>
 
