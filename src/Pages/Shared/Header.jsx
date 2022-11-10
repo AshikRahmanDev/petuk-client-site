@@ -17,7 +17,10 @@ const Header = () => {
       </li>
 
       <li>
-        <Link className="btn bg-transparent border-0 hover:bg-white hover:text-orange-400">
+        <Link
+          to={"/blog"}
+          className="btn bg-transparent border-0 hover:bg-white hover:text-orange-400"
+        >
           Blog
         </Link>
       </li>
