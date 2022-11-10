@@ -1,13 +1,16 @@
 import React, { useContext, useState } from "react";
 import { MdEmail, MdPassword } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Login = () => {
   const [error, setError] = useState(null);
   const { googleLogin, login } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathName || "/";
 
   const handleGoogleLogin = () => {
     googleLogin()
@@ -31,9 +34,20 @@ const Login = () => {
     login(email, password)
       .then((result) => {
         const user = result.user;
+        navigate(from, { replace: true });
         form.reset();
         setError(null);
-        console.log(user);
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(user),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("petuk-token", data.token);
+          });
       })
       .catch((err) => setError(err.message));
   };

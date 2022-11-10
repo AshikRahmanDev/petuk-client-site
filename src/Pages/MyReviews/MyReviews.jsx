@@ -1,29 +1,35 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
 import TableItem from "./TableItem";
+import toast, { Toaster } from "react-hot-toast";
 
 const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
   const { user } = useContext(AuthContext);
+  const notify = () => toast.success("Review Deleted!");
 
   useEffect(() => {
     fetch(`http://localhost:5000/user/reviews/?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
-  }, []);
+  }, [user]);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/delete/review/?id=${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data?.deletedCount > 0) {
-          const reviewLeft = reviews.filter((rev) => rev._id !== id);
-          setReviews(reviewLeft);
-        }
-      });
+    const conformation = window.confirm("Confirm if your want to delete!");
+    if (conformation) {
+      fetch(`http://localhost:5000/delete/review/?id=${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data?.deletedCount > 0) {
+            const reviewLeft = reviews.filter((rev) => rev._id !== id);
+            setReviews(reviewLeft);
+            notify();
+          }
+        });
+    }
   };
 
   return (
@@ -58,6 +64,7 @@ const MyReviews = () => {
           </table>
         )}
       </div>
+      <Toaster />
     </div>
   );
 };

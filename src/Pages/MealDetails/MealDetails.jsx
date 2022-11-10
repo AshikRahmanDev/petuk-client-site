@@ -1,6 +1,6 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
-import { GiForkKnifeSpoon, GiSandsOfTime } from "react-icons/gi";
+import { GiSandsOfTime } from "react-icons/gi";
 import ReviewSection from "./ReviewSection";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
