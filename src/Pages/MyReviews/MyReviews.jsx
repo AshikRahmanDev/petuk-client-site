@@ -15,14 +15,16 @@ const MyReviews = () => {
       `https://petuk-server-mohammdashik.vercel.app/user/reviews/?email=${user?.email}`,
       {
         headers: {
-          authorization: localStorage.getItem("petuk-token"),
+          authorization: `${localStorage.getItem("petuk-token")}`,
         },
       }
     )
       .then((res) => {
         if (res.status === 401 || res.status === 403) {
+          localStorage.removeItem("petuk-token");
           return logout();
         }
+
         return res.json();
       })
       .then((data) => setReviews(data));

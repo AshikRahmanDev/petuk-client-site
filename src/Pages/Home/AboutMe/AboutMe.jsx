@@ -30,7 +30,7 @@ const AboutMe = () => {
             </thead>
             <tbody>
               <tr>
-                <td>Chantelle Nicholson</td>
+                <td>6 Years</td>
                 <td>info@nicholson.com</td>
                 <td>+153-659-6542</td>
               </tr>

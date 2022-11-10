@@ -29,8 +29,9 @@ const AboutServices = () => {
         <TbShoppingCartDiscount className="text-8xl" />
         <h1 className="text-2xl font-bold">Affordable Price</h1>
         <p>
-          No processed frankenfoods here, eat healthy products made with
-          wholesome real-food ingredients you can find in household kitchens.
+          The reasonable price method is very subjective, based on feelings or
+          guesses. It is often used by people who do not understand food costs,
+          mark up expenses.
         </p>
       </div>
 
@@ -38,8 +39,9 @@ const AboutServices = () => {
         <SiCodechef className="text-8xl" />
         <h1 className="text-2xl font-bold">Made With Experience</h1>
         <p>
-          No processed frankenfoods here, eat healthy products made with
-          wholesome real-food ingredients you can find in household kitchens.
+          I have Experience of 6 Years. I work made food form home. She is host
+          of Food Network’s Delicious Miss Brown and has appeared on Beat Bobby
+          Flay.
         </p>
       </div>
     </div>

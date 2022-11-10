@@ -73,7 +73,7 @@ const ReviewSection = ({ meal }) => {
     <div className="my-6">
       <h1 className="text-4xl font-bold mb-3">Customer Reviews</h1>
       <div className="grid grid-cols-4">
-        <div className="col-span-4 md:col-span-3 grid grid-cols-2 gap-4 w-[90%]">
+        <div className="col-span-4 md:col-span-3 grid md:grid-cols-2 grid-cols-1 gap-4 w-[90%]">
           {reviews.length === 0 ? (
             <>
               <h1>not reviewed yet!</h1>
