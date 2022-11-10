@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import { MdEmail, MdPassword } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import "./Login.css";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Login = () => {
@@ -16,7 +15,7 @@ const Login = () => {
     googleLogin()
       .then((result) => {
         const user = result.user;
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://petuk-server.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -48,7 +47,7 @@ const Login = () => {
         navigate(from, { replace: true });
         form.reset();
         setError(null);
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://petuk-server.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -65,7 +64,7 @@ const Login = () => {
   };
   return (
     <div className="md:h-[92vh] h-[92vh] md:flex justify-between">
-      <div className="mx-auto w-[30%] pt-16 md:pt-0 md:my-auto">
+      <div className="mx-auto w-[95%] md:w-[30%] pt-16 md:pt-0 md:my-auto">
         <h1 className=" text-3xl normal-case font-bold">Login</h1>
         <p className="my-3 text-gray-500">Register or Login for order Meals.</p>
         {/* login with email */}

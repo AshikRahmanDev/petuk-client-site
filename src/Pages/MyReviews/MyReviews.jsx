@@ -9,11 +9,14 @@ const MyReviews = () => {
   const notify = () => toast.success("Review Deleted!");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/user/reviews/?email=${user?.email}`, {
-      headers: {
-        authorization: localStorage.getItem("petuk-token"),
-      },
-    })
+    fetch(
+      `https://petuk-server.vercel.app/user/reviews/?email=${user?.email}`,
+      {
+        headers: {
+          authorization: localStorage.getItem("petuk-token"),
+        },
+      }
+    )
       .then((res) => {
         if (res.status === 401 || res.status === 403) {
           return logout();
@@ -26,7 +29,7 @@ const MyReviews = () => {
   const handleDelete = (id) => {
     const conformation = window.confirm("Confirm if your want to delete!");
     if (conformation) {
-      fetch(`http://localhost:5000/delete/review/?id=${id}`, {
+      fetch(`https://petuk-server.vercel.app/delete/review/?id=${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -43,10 +46,10 @@ const MyReviews = () => {
 
   return (
     <div className="my-5 h-[90vh] ">
-      <div className="overflow-x-auto w-[90%] mx-auto rounded-lg">
+      <div className="overflow-x-auto md:w-[90%] mx-auto rounded-lg">
         {reviews.length === 0 ? (
           <div className="flex items-center justify-center h-[80vh] mx-auto ">
-            <h1 className="text-5xl font-bold">
+            <h1 className="text-5xl text-center font-bold">
               No <span className="text-orange-400">reviews</span> were added!
             </h1>
           </div>
@@ -54,11 +57,13 @@ const MyReviews = () => {
           <table className="border border-orange-400 p-2 w-full ">
             <thead className="bg-orange-400 ">
               <tr>
-                <th className="py-3 text-white">Meal</th>
-                <th className="py-3 text-white">Review</th>
-                <th className="py-3 text-white">Date</th>
-                <th className="py-3 text-white"></th>
-                <th className="py-3 text-white"></th>
+                <th className="py-3 text-start px-3 text-white">Meal</th>
+                <th className="py-3 text-start px-3 text-white">Review</th>
+                <th className="py-3 hidden md:block text-start px-3 text-white">
+                  Date
+                </th>
+                <th className="py-3 text-start px-3 text-white"></th>
+                <th className="py-3 text-start px-3 text-white"></th>
               </tr>
             </thead>
             <tbody>

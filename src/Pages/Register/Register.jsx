@@ -42,7 +42,7 @@ const Register = () => {
   };
   return (
     <div className="md:h-[92vh] h-[92vh] md:flex justify-between">
-      <div className="mx-auto w-[30%] pt-16 md:pt-0 md:my-auto">
+      <div className="mx-auto w-[95%] md:w-[30%] pt-10 md:pt-0 md:my-auto">
         <h1 className=" text-3xl normal-case font-bold">Register Now</h1>
         <p className="my-3 text-gray-500">Register or Login for order Meals.</p>
 

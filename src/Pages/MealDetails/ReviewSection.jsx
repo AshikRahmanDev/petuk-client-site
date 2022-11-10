@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 const ReviewSection = ({ meal }) => {
   const [reviews, setReviews] = useState([]);
   const notify = () => toast.success("Thanks For Your Review!");
+  const empty = () => toast.error("Please Enter Something for Post Review!");
   const { user } = useContext(AuthContext);
 
   var today = new Date(),
@@ -18,7 +19,7 @@ const ReviewSection = ({ meal }) => {
       today.getDate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://petuk-server.vercel.app/reviews", {
       headers: {
         meal: meal.name,
       },
@@ -43,7 +44,11 @@ const ReviewSection = ({ meal }) => {
       mealDetails: meal,
     };
 
-    fetch("http://localhost:5000/add/review", {
+    if (reviewMessage.length === 0) {
+      return empty();
+    }
+
+    fetch("https://petuk-server.vercel.app/add/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -68,13 +73,19 @@ const ReviewSection = ({ meal }) => {
     <div className="my-6">
       <h1 className="text-4xl font-bold mb-3">Customer Reviews</h1>
       <div className="grid grid-cols-4">
-        <div className="col-span-3 grid grid-cols-2 gap-4 w-[90%]">
-          {reviews.map((review) => (
-            <ReviewCard key={review._id} review={review} />
-          ))}
+        <div className="col-span-4 md:col-span-3 grid grid-cols-2 gap-4 w-[90%]">
+          {reviews.length === 0 ? (
+            <>
+              <h1>not reviewed yet!</h1>
+            </>
+          ) : (
+            reviews.map((review) => (
+              <ReviewCard key={review._id} review={review} />
+            ))
+          )}
         </div>
 
-        <div className="col-span-1">
+        <div className="col-span-4 md:col-span-1">
           {user?.email ? (
             <>
               <h4 className="text-xl font-bold">Review This Meal</h4>

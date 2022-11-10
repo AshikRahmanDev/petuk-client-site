@@ -19,7 +19,7 @@ const AddMeal = () => {
       details,
     };
 
-    fetch("http://localhost:5000/addMeal", {
+    fetch("https://petuk-server.vercel.app/addMeal", {
       method: "POST",
       headers: {
         "content-type": "application/json",

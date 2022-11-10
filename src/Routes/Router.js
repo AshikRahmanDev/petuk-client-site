@@ -28,14 +28,14 @@ export const router = createBrowserRouter([
       },
       {
         path: "/allMenu",
-        loader: () => fetch("http://localhost:5000/menu/meals"),
+        loader: () => fetch("https://petuk-server.vercel.app/menu/meals"),
         element: <AllMenu />,
       },
       {
         path: "/mealDetails/:id",
         loader: ({ params }) => {
           const id = params.id;
-          return fetch(`http://localhost:5000/mealWithId/${id}`);
+          return fetch(`https://petuk-server.vercel.app/mealWithId/${id}`);
         },
         element: <MealDetails />,
       },
@@ -51,7 +51,7 @@ export const router = createBrowserRouter([
       {
         path: "/editReview/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/singleReview/${params.id}`),
+          fetch(`https://petuk-server.vercel.app/singleReview/${params.id}`),
         element: (
           <PrivetRoute>
             <EditReviews />

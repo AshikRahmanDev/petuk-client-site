@@ -20,7 +20,7 @@ const EditReviews = () => {
     }
 
     if (review.length > 0) {
-      fetch("http://localhost:5000/updateReview", {
+      fetch("https://petuk-server.vercel.app/updateReview", {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

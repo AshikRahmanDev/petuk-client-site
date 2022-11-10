@@ -28,23 +28,23 @@ const TableItem = ({ review, handleDelete }) => {
           ? reviewMessage.slice(0, 50) + "..."
           : reviewMessage}
       </td>
-      <td>{date}</td>
-      <th>
+      <td className="hidden md:block">{date}</td>
+
+      <td className="md:w-[150px] text-center">
         <button
           onClick={() => handleDelete(_id)}
-          className="btn bg-red-500 rounded-3xl border-0"
+          className="btn m-1 bg-red-500 rounded-3xl border-0"
         >
           Delete
         </button>
-      </th>
-      <th>
+        <br className="hidden md:visible" />
         <Link
           to={`/editReview/${_id}`}
           className="btn bg-green-500 rounded-3xl border-0"
         >
           Edit
         </Link>
-      </th>
+      </td>
     </tr>
   );
 };
